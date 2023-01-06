@@ -329,7 +329,7 @@ print(array)
         document.getElementsByClassName("slider")[1].style.width = "0.25rem";
         document.getElementsByClassName("scrollbar")[1].style.width = "0.25rem";
         document.getElementsByTagName("canvas")[0].style.width = "0.25rem";
-      }, 1000);
+      }, 5000);
     }
 
     pause = document.getElementsByClassName("pause")[0].style;
