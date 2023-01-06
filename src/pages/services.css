@@ -1,0 +1,94 @@
+.service-container {
+  padding: 0 0 2rem 5rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  color: #23232e;
+}
+
+.botton {
+  padding-top: 0;
+  padding-bottom: 0;
+  width: 90%;
+}
+
+.section-sec {
+  width: 100%;
+  list-style: none;
+}
+
+.problem-title {
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.problem-statment {
+  margin-bottom: 24px;
+  font-size: 20px;
+}
+
+.sec-item {
+  width: 100%;
+}
+
+#arrow {
+  padding: 0.25rem;
+  margin-left:auto;
+}
+
+
+.sec-link:last-child {
+  margin-left: auto;
+}
+
+
+.span-text {
+  margin-left: 1rem;
+  display: inline;
+}
+
+.sec-link {
+  width: 100%;
+  border: 1px solid #b6b6b6;
+  margin: 1rem 0;
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: black;
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: var(--transition-speed);
+}
+
+
+.sec-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: #23232e;
+  color: var(--text-secondary);
+}
+
+.sec-link svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .service-container {
+    padding: 0 0 5rem 0;
+  }
+}
+

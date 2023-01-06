@@ -1,0 +1,73 @@
+.range-container{
+  flex-direction: column;
+  padding: 24px 24px 0 24px;
+  display: flex;
+  background: #fff;
+  border-radius: 0.3rem;
+  border: 1px solid #b6b6b6;
+  align-items: center;
+  justify-content: center;
+}
+
+.field{
+  display: flex;
+  align-items: center;
+}
+
+.t-f {
+  position: relative;
+  margin-bottom: 24px;
+  justify-content: center;
+  width: 30%;
+}
+.l-f {
+  flex-direction: column;
+  justify-content: end;
+  width: 70%;
+}
+.field .value{
+  position: absolute;
+  font-size: 18px;
+  color: #23232e;
+  font-weight: 600;
+}
+
+.field .value.right{
+  right: -2rem;
+}
+.range-container input{
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+.range-container input::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 20%;
+  background: #23232e;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.range-container input::-moz-range-container-thumb{
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  background: #664AFF;
+  border: 1px solid #664AFF;
+  cursor: pointer;
+}
+.range-container input::-moz-range-container-progress{
+  background: #664AFF; 
+}
+
+#lower-input {
+  background: linear-gradient(to right, #23232e 0%, #ddd 0%);
+  pointer-events: none;
+}

@@ -1,0 +1,184 @@
+.problem-container {
+  padding: 0 0 2rem 5rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.problem-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  color: var(--bg-primary);
+}
+
+.error-l {
+  width: 95%;
+  color: #fff;
+  padding: 30px 30px 0 30px;
+}
+
+.output {
+  padding: 0.5rem;
+  min-height: 10vh;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--text-primary);
+  border-radius: 0.3rem;
+}
+
+.error-l > p {
+  font-size: 24px;
+}
+
+.problem-bottom {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px 0 30px;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+}
+
+.visual {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.code {
+  width: 100%;
+  height: 90vh;
+}
+
+.vis--outline {
+  margin: 0 0.5rem;
+
+  background-color: #242424;
+  color: #fff;
+  padding: 8px 20px;
+  border: 1px solid #fff;
+  transition: all 0.3s ease-out;
+  padding: 8px 20px;
+  font-size: 18px;
+  border-radius: 0.3rem;
+}
+
+.vis--outline:hover {
+  transition: all 0.3s ease-out;
+  background: #fff;
+  color: #242424;
+  border-color: #242424;
+  transition: 250ms;
+}
+
+.code-btn {
+  display: flex;
+}
+
+.l-f svg {
+  width: 0.8rem;
+  min-width: 0.8rem;
+  margin: 0.4rem 0.6rem;
+}
+
+.svg-container {
+  display: flex;
+}
+
+.mystyle {
+  background: #242424;
+}
+
+.array-container {
+  overflow: hidden;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.array-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.array-bar {
+  display: inline-block;
+  margin: 0 1px;
+  transition: 0.3s;
+}
+
+.vis-container {
+  width: 100%;
+  border-radius: 0.3rem;
+  border: 1px solid #b6b6b6;
+  flex-direction: column;
+  display: flex;
+  margin-bottom: 24px;
+  height: 100%;
+}
+
+.code_contain {
+  margin-bottom: 1rem;
+}
+
+.pause {
+  display: none;
+}
+
+.code::-webkit-scrollbar {
+  height: 0.25rem;
+  width: 0.25rem;
+}
+
+canvas {
+  background-color: #282a36;
+  width: 0.25rem;
+}
+
+.overlay {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  background-color: rgb(0, 0, 0); 
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden; 
+  transition: 0.5s; 
+}
+
+.overlay-content {
+  position: relative;
+  top: 40%; 
+  width: 100%;
+  text-align: center; 
+  margin-top: 30px; 
+}
+
+.loading {
+  color: #36d7b7;
+  position: relative;
+  top: 2rem;
+  left: 1.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .problem-container {
+    padding: 0 0 2rem 0;
+  }
+}
+
+#slider_media {
+  display: flex;
+}
