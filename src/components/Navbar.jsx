@@ -55,7 +55,7 @@ class Navbar extends React.Component {
             </li>
 
             <li className="nav-item">
-              <Link to="/" className="nav-link">
+              <a href="https://github.com/deepak427/V-Code-Client.git" target="_blank" className="nav-link">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                   <path
                     fill="#df49a6"
@@ -63,7 +63,7 @@ class Navbar extends React.Component {
                   />
                 </svg>
                 <span className="link-text">Contribute</span>
-              </Link>
+              </a>
             </li>
 
             <li className="nav-item">

@@ -34,21 +34,9 @@ var p_string_no;
 
 var speed = 1000 * (1 / 5);
 
-function Code_visualization() {
-  const [code, setCode] = useState(`
-#Input list should be declared before function
-arr = [121, 91, 213, 115]
-  
-def func(arr):
+var p_code = ``;
 
-  # Write your algorithm here.
-      
-  return arr
-  
-array = func(arr)
-  
-print(array)
-  `);
+function Code_visualization() {
   const [loading, setloading] = useState(false);
 
   const { state } = useLocation();
@@ -60,6 +48,147 @@ print(array)
   const para_1 = p_string[p_string_no * 2 - 1];
 
   const para_2 = p_string[p_string_no * 2];
+
+  console.log(p_string_no)
+  if (p_string_no==1) {
+    p_code = `
+#Input list should be declared before function
+arr = [20,10,80,70,60,50] 
+      
+def find_next(arr):
+    
+  n =len(arr)
+    
+  i = n-1
+  while(i>0):
+    if(arr[i]>arr[i-1]):
+      break
+    i-=1
+    
+  if(i==0):
+    return arr
+    
+  mini_i = i
+    
+  for j in range(i+1,n):
+    if(arr[j]<arr[mini_i]):
+      mini_i = j
+    
+  arr[mini_i],arr[i-1] = arr[i-1],arr[mini_i]  
+    
+  for k in range(0,n-i):
+    for j in range(i, n-k-1):
+      if arr[j] > arr[j+1]:
+        arr[j], arr[j+1] = arr[j+1], arr[j]
+          
+  return arr
+      
+array = find_next(arr)
+      
+print(array)
+`}
+
+if (p_string_no==2) {
+ p_code=`
+#Input list should be declared before function
+arr = [121, 91, 213, 115, 67, 23, 124, 213,89]
+    
+def reverse(arr):
+  
+  n = len(arr)
+  
+  for i in range(n//2):
+    if(arr[i] != arr[n-i-1]):
+      arr[i],arr[n-i-1]=arr[n-i-1],arr[i]
+        
+  return arr
+    
+array = reverse(arr)
+    
+print(array)
+`}
+
+if (p_string_no==3) {
+  p_code=`
+#Input list should be declared before function
+arr = [121, 91, 213, 115]
+    
+def bubble_sort(arr):
+  
+  n = len(arr)
+  
+  for i in range(0,n-1):
+    for j in range(0,n-i-1):
+      if arr[j]>arr[j+1]:
+        arr[j],arr[j+1] = arr[j+1],arr[j]
+        
+  return arr
+    
+array = bubble_sort(arr)
+    
+print(array)
+`}
+
+if (p_string_no==4) {
+  p_code=`
+#Input list should be declared before function
+arr = [40,90,60,50,80]
+    
+def max_swap(arr):
+  
+  n = len(arr)
+  max_digit = -1
+  max_digit_indx = -1
+  l_indx = -1
+  r_indx = 1
+  
+  for i in range(n - 1, -1, -1):
+          
+    if arr[i] > max_digit:
+      max_digit = arr[i]
+      max_digit_indx = i
+      continue
+   
+    if arr[i] < max_digit:
+      l_indx = i
+      r_indx = max_digit_indx
+   
+  if l_indx == -1:
+    return array
+   
+  arr[l_indx], arr[r_indx] = arr[r_indx], arr[l_indx]
+        
+  return arr
+    
+array = max_swap(arr)
+    
+print(array)`}
+
+if (p_string_no==5) {
+  p_code=`
+#Input list should be declared before function
+arr = [121, 91, 213, 115]
+    
+def selection_sort(arr):
+  
+  n = len(arr)
+  
+  for i in range(n):
+    min_idx = i
+    for j in range(i+1, n):
+      if arr[min_idx] > arr[j]:
+          min_idx = j
+                  
+    arr[i], arr[min_idx] = arr[min_idx], arr[i]
+        
+  return arr
+    
+array = selection_sort(arr)
+    
+print(array)    
+`}
+
+const [code, setCode] = useState(p_code);
 
   function handleEditorChange(value, event) {
     document.getElementById("error").innerHTML = "";
@@ -220,7 +349,7 @@ print(array)
     };
 
     bar_set(0);
-  }, []);
+  },);
 
   function checkCode(check) {
     play.pointerEvents = "";

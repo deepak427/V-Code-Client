@@ -102,7 +102,7 @@ function Footer() {
             </a>
             <a
               className="social-icon-link github"
-              href="/"
+              href="https://github.com/deepak427/V-Code-Client.git"
               target="_blank"
               aria-label="Github"
             >
