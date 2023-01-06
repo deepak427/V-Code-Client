@@ -8,7 +8,7 @@ import Editor from "@monaco-editor/react";
 import { useLocation } from "react-router-dom";
 import GridLoader from "react-spinners/PropagateLoader";
 
-const baseURL = "https://v-code-server.onrender.com";
+const baseURL = " http://127.0.0.1:3000/";
 var anim = [];
 var i = 0;
 const PRIMARY_COLOR = "turquoise";
@@ -194,7 +194,11 @@ print(array)
 `;
   }
 
-  const [code, setCode] = useState(p_code);
+  var [code, setCode] = useState(p_code);
+
+  if (problem_no==-1) {
+    code = p_code;
+  }
 
   function handleEditorChange(value, event) {
     document.getElementById("error").innerHTML = "";
@@ -631,6 +635,7 @@ print(array)
                     <svg
                       className="pause"
                       onClick={() => {
+                        play.pointerEvents = "";
                         pause.display = "none";
                         play.display = "block";
                         var killId = setTimeout(function () {
