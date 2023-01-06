@@ -1,6 +1,6 @@
 import React from "react";
 import "./about-me.css";
-import pdf from "../assets/documents/Deepak_Singh_Resume.pdf";
+import pdf from "../assests/documents/Deepak_Singh_Resume.pdf";
 
 export default function About() {
   window.scrollTo(0, 0);
