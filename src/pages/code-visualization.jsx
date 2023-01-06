@@ -8,7 +8,7 @@ import Editor from "@monaco-editor/react";
 import { useLocation } from "react-router-dom";
 import GridLoader from "react-spinners/PropagateLoader";
 
-const baseURL = "https://v-code-server.onrender.com";
+const baseURL = " http://127.0.0.1:3000/";
 var anim = [];
 var i = 0;
 const PRIMARY_COLOR = "turquoise";
@@ -36,6 +36,8 @@ var speed = 1000 * (1 / 5);
 
 var p_code = ``;
 
+var g_check;
+
 function Code_visualization() {
   const [loading, setloading] = useState(false);
 
@@ -49,8 +51,7 @@ function Code_visualization() {
 
   const para_2 = p_string[p_string_no * 2];
 
-  console.log(p_string_no)
-  if (p_string_no==1) {
+  if (p_string_no == 1) {
     p_code = `
 #Input list should be declared before function
 arr = [20,10,80,70,60,50] 
@@ -86,10 +87,11 @@ def find_next(arr):
 array = find_next(arr)
       
 print(array)
-`}
+`;
+  }
 
-if (p_string_no==2) {
- p_code=`
+  if (p_string_no == 2) {
+    p_code = `
 #Input list should be declared before function
 arr = [121, 91, 213, 115, 67, 23, 124, 213,89]
     
@@ -106,10 +108,11 @@ def reverse(arr):
 array = reverse(arr)
     
 print(array)
-`}
+`;
+  }
 
-if (p_string_no==3) {
-  p_code=`
+  if (p_string_no == 3) {
+    p_code = `
 #Input list should be declared before function
 arr = [121, 91, 213, 115]
     
@@ -127,10 +130,11 @@ def bubble_sort(arr):
 array = bubble_sort(arr)
     
 print(array)
-`}
+`;
+  }
 
-if (p_string_no==4) {
-  p_code=`
+  if (p_string_no == 4) {
+    p_code = `
 #Input list should be declared before function
 arr = [40,90,60,50,80]
     
@@ -162,10 +166,11 @@ def max_swap(arr):
     
 array = max_swap(arr)
     
-print(array)`}
+print(array)`;
+  }
 
-if (p_string_no==5) {
-  p_code=`
+  if (p_string_no == 5) {
+    p_code = `
 #Input list should be declared before function
 arr = [121, 91, 213, 115]
     
@@ -186,9 +191,10 @@ def selection_sort(arr):
 array = selection_sort(arr)
     
 print(array)    
-`}
+`;
+  }
 
-const [code, setCode] = useState(p_code);
+  const [code, setCode] = useState(p_code);
 
   function handleEditorChange(value, event) {
     document.getElementById("error").innerHTML = "";
@@ -213,6 +219,14 @@ const [code, setCode] = useState(p_code);
   window.addEventListener("resize", (event) => {
     bar_set(3);
   });
+
+  window.addEventListener("popstate", detectHistory);
+
+  function detectHistory() {
+    var killId = setTimeout(function () {
+      for (var j = killId; j > 0; j--) clearTimeout(j);
+    });
+  }
 
   function bar_set(bar) {
     try {
@@ -338,7 +352,6 @@ const [code, setCode] = useState(p_code);
       if (
         document.getElementsByClassName("pause")[0].style.display == "block"
       ) {
-        console.log(code);
         checkCode(3);
       }
     });
@@ -348,8 +361,10 @@ const [code, setCode] = useState(p_code);
       slideValue.innerHTML = value;
     };
 
-    bar_set(0);
-  },);
+    if (g_check != 0 && g_check != -1 && g_check != 1) {
+      bar_set(0);
+    }
+  });
 
   function checkCode(check) {
     play.pointerEvents = "";
@@ -373,7 +388,6 @@ const [code, setCode] = useState(p_code);
           pause.display = "block";
         }
 
-        console.log(responce);
         var inx_speed = 0;
         var cout = 0;
 
@@ -442,9 +456,6 @@ const [code, setCode] = useState(p_code);
             const color = color_no === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
             (function (index, idx, c_no) {
               setTimeout(() => {
-                console.log(index);
-                console.log(animations[index][1]);
-                console.log(inputSlider_2.value);
                 inputSlider_2.value = Number(inputSlider_2.value) + 1;
                 var val =
                   100 * (Number(inputSlider_2.value) / inputSlider_2.max);
@@ -476,9 +487,6 @@ const [code, setCode] = useState(p_code);
           } else {
             (function (index, idx) {
               setTimeout(() => {
-                console.log(index);
-                console.log(animations[index][1]);
-                console.log(inputSlider_2.value);
                 inputSlider_2.value = Number(inputSlider_2.value) + 1;
                 var val =
                   100 * (Number(inputSlider_2.value) / inputSlider_2.max);
@@ -516,7 +524,6 @@ const [code, setCode] = useState(p_code);
           document.getElementsByTagName("svg")[8].style.pointerEvents = "";
 
           if (check == 1 || check == 2) {
-            console.log("workm workm");
             document.getElementsByTagName("svg")[5].style.pointerEvents =
               "none";
             document.getElementsByTagName("svg")[8].style.pointerEvents =
@@ -612,7 +619,7 @@ const [code, setCode] = useState(p_code);
                               for (var i = killId; i > 0; i--) clearTimeout(i);
                             });
                           })();
-
+                          g_check = -1;
                           checkCode(-1);
                         }
                       }}
@@ -647,6 +654,7 @@ const [code, setCode] = useState(p_code);
                           for (var j = killId; j > 0; j--) clearTimeout(j);
                         });
                         i = inputSlider_2.value;
+                        g_check = 1;
                         checkCode(1);
                       }}
                       className="play"
@@ -668,6 +676,7 @@ const [code, setCode] = useState(p_code);
                             "svg"
                           )[8].style.pointerEvents = "none";
                           i = inputSlider_2.value;
+                          g_check = 0;
                           checkCode(0);
                         } else {
                           console.log("out");
